@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset style="width:200px">
+            <legend>Dados pessoais</legend>
+            <br>
+            <label for="txtNome">Nome:</label>
+            <br>
+            <input type="text" id="txtNome" maxlength="25" placeholder="Nome completo" required>
+            <br>
+            <br>
+            <label for="txtNascimento">Data de nascimento:</label>
+            <br>
+            <input type="date" id="txtNascimento" required>
+            <br>
+            <br>
+            Sexo:
+            <br>
+            <input type="radio" name="sexo">Masculino
+            <input type="radio" name="sexo">Feminino
+            <br>
+            <br>
+        </fieldset>
+        <br>
+        <fieldset style="width:200px">
+            <legend>Informações de contato:</legend>
+            <br>
+            <label for="cod_email">E-mail:</label>
+            <br>
+            <input type="email" id="cod_email" maxlength="75" placeholder="Digite seu email" required>
+            <br>
+            <br>
+            <label for="num_telefone">Telefone:</label>
+            <br>
+            <input type="number" id="num_telefone" maxlength="11" min="1" placeholder="Digite seu contato" required>
+            <br>    
+            <br>
+            <label for="web_end">Website Pessoal:</label>
+            <br>
+            <input type="url" id="web_end" maxlength="75" placeholder="Digite seu site" required>
+            <br>
+            <br>
+        </fieldset>
+        <br>
+        <fieldset style="width:200px">
+            <legend>Localização</legend>  
+            <br>
+            <label for="txt_endereco">Endereço:</label>
+            <br>
+            <input type="text" id="txt_endereco" maxlength="75" placeholder="Digite seu endereço" required>
+            <br>
+            <br>
+            <label for="num_end">Número:</label>
+            <br>
+            <input type="number" id="num_end" min="1" max="5000" placeholder="Número" required>
+            <br>
+            <br>
+            <label for="txt_cidade">Cidade:</label>
+            <br>
+            <input type="text" id="txt_cidade" maxlength="75" placeholder="Digite a cidade" required>
+        </fieldset>
+        <br>
+        <input type="submit" value="Cadastrar">
+        <input type="reset" value="Limpar">
+    </form>
+</body>
+</html>
