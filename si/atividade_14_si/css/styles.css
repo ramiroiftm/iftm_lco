@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,700&display=swap');
+
+ *
+{
+    margin: 0px;
+    padding: 0px;
+}
+body
+{
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+}
+header ul
+{
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+    background-color: #006680;
+}
+header ul li
+{
+    display: inline;
+}
+header a:link, header a:visited
+{
+    text-decoration: none;
+    padding: 20px 30px;
+    display: inline-block;
+    color: white;  
+}
+header a:hover
+{
+    background-color: white;
+    color: #006680;
+}
+header img
+{
+    width: 100%;
+}
+h1, h2
+{
+    text-align: center;
+    margin: 25px 0px;
+}
+h1
+{
+    font-size: 40px;
+    color: white;
+    transition: all 0.5s;
+
+}
+h2
+{
+    color: yellow;
+}
+main h1:hover
+{
+    letter-spacing: 5px;
+}
+main section:nth-child(odd)
+{
+    background-color: rgb(201, 201, 201);
+}
+main section:nth-child(even)
+{
+    background-color: white;
+}
+main section:first-child
+{
+    background-color: black;
+}
+main section
+{
+    width: 1200px;
+    margin: auto;
+    padding: 30px;
+}
+main section p
+{
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+main section h3
+{
+    color: red;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+main section ul
+{
+    padding-left: 40px;
+    line-height: 1.5;
+    text-align: justify;
+}
+footer 
+{
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+}
+footer p 
+{
+    color: white;
+}
+

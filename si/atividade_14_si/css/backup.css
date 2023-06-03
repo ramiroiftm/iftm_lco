@@ -1,0 +1,74 @@
+*
+{
+    margin: 0px;
+}
+ul
+{
+    list-style: none;
+    padding: 0px;
+    text-align: center;
+    background-color: rgb(49, 45, 233);
+    font-family: 'Nabla', cursive;
+}
+li
+{
+    /*Transforma a coluna em linha*/
+    display: inline-block;
+}
+a:link, a:visited
+{
+        text-decoration:none;
+        display: inline-block;
+        padding: 20px;
+        color: white;
+}
+a:hover
+{
+    background-color: white;
+    color: rgb(39, 37, 196);
+}
+a:active
+{
+    background-color: aqua;
+}
+h1, h3
+{
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+}
+h1
+{
+    color:white;
+}
+h3
+{
+    color:yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+main section h1 h2
+{
+    padding-left: 0px;
+    text-align: center;
+}
+main section h1
+{
+    background-color: black;
+    color: white;
+}
+main section h2
+{
+    background-color: black;
+    color: yellow;
+}
+
