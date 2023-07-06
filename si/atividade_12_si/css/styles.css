@@ -1,0 +1,19 @@
+*
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1
+{
+    color: red;
+    background-color: yellow;
+    text-align: center;
+    font-size: 50px;
+    text-decoration: underline;
+}
+p
+{
+    background-color: rgb(228,228,228);
+    text-align: center;
+    font-size: 20px;
+    line-height: 3;
+}
