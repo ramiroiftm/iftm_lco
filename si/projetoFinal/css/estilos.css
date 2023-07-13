@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,700&display=swap');
+
+*
+{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+header img
+{
+    width: 80px;
+}
+
+header ul
+{
+    list-style: none;
+    text-align: center; 
+    background-color: darkblue; 
+}
+
+header ul li
+{
+    display: inline-block;
+}
+
+header ul li a:link, header ul li a:visited
+{
+    text-decoration: none;
+    color: white;
+    padding: 30px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+header ul li a:hover, a:active
+{
+    text-decoration: none;
+    border-bottom: 1.5px solid yellow;
+    border-top: 1.5px solid red;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.section01 h2
+{
+    color: red;
+    padding: 10px 0px;
+}
+
+.section01
+{
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section01 img
+{
+    width: 500px;
+}
+
+.celular img:hover
+{
+    transform: scale(0.9);  
+    cursor:pointer;
+}
+
+.section01 > div
+{
+    width: 500px;
+    margin: 15px;
+    text-align: justify;
+    line-height: 1.5em;
+    font-size: 15px;
+}
+
+.celular
+{
+    padding: 10px;
+    display: flex;
+}
+
+.celular > div
+{
+    width: 300px;
+    margin: 20px;
+    text-align: justify;
+    line-height: 1.5em;
+    font-size: 15px;
+}
+
+.celular h2
+{
+    text-align: center;
+    color: blue;
+}
+
+.fundoMain
+{
+    background-color: white;
+}
+
+.detalhe01
+{
+    flex-direction: row;
+    margin: auto;
+    width: 1200px;
+}
+
+.section02
+{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detalhe02
+{
+    flex-direction: column;
+    margin: auto;
+    width: 1200px;
+}
+
+.contDiv
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.contDiv img
+{
+    margin: 10px;
+}
+
+.contDiv p
+{
+    margin: auto;
+}
+
+.section02 > div
+{
+    text-align: justify;
+    margin: 10px 50px;
+    line-height: 1.5em;
+    font-size: 15px;
+}
+
+.section02 h2
+{
+    padding: 10px;
+}
+
+.principal, .separador
+{
+    background-color: #252525;
+}
+
+footer
+{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 12px;
+}
