@@ -1,0 +1,46 @@
+import os
+from PyPDF2 import PdfReader
+import pandas as pd
+
+# Função para extrair texto de um arquivo PDF
+def extrair_texto(pdf_path):
+    texto = ""
+    pdf_reader = PdfReader(pdf_path)
+    for page in pdf_reader.pages:
+        texto += page.extract_text()
+    return texto
+
+# Função para converter texto em uma planilha CSV com tamanho de coluna personalizável
+def converter_para_csv(texto, tamanho_coluna):
+    linhas = texto.split("\n")
+    data = [linha.split() for linha in linhas]
+    df = pd.DataFrame(data)
+    
+    # Define o tamanho das colunas
+    if tamanho_coluna is not None:
+        df.columns = [str(coluna)[:tamanho_coluna] for coluna in df.columns]
+    return df
+
+# Pasta de entrada com arquivos PDF
+pasta_entrada = "G:/My Drive/03 - Estudos"
+
+# Pasta de saída para arquivos CSV
+pasta_saida = "C:/Users/ramir/Downloads/New folder"
+
+
+# Tamanho das colunas (deixe None para tamanho padrão)
+tamanho_coluna = 10
+
+# Loop através dos arquivos PDF na pasta de entrada
+for arquivo in os.listdir(pasta_entrada):
+    if arquivo.endswith(".pdf"):
+        pdf_path = os.path.join(pasta_entrada, arquivo)
+        texto = extrair_texto(pdf_path)
+        df = converter_para_csv(texto, tamanho_coluna)
+        
+        # Nome do arquivo de saída (remova a extensão .pdf)
+        nome_saida = os.path.splitext(arquivo)[0] + ".csv"
+        saida_path = os.path.join(pasta_saida, nome_saida)
+        
+        # Salva o DataFrame como CSV
+        df.to_csv(saida_path, index=False)
