@@ -1,46 +1,55 @@
 import os
-from PyPDF2 import PdfReader
-import pandas as pd
+import tabula
+import PyMuPDF
 
-# Função para extrair texto de um arquivo PDF
-def extrair_texto(pdf_path):
-    texto = ""
-    pdf_reader = PdfReader(pdf_path)
-    for page in pdf_reader.pages:
-        texto += page.extract_text()
-    return texto
+# Função para converter um arquivo PDF em planilha
+def convert_pdf_to_excel(pdf_path, output_path, column_widths):
+    # Extrair a tabela do PDF
+    table = tabula.read_pdf(pdf_path, output_format="xlsx", columns=column_widths)
 
-# Função para converter texto em uma planilha CSV com tamanho de coluna personalizável
-def converter_para_csv(texto, tamanho_coluna):
-    linhas = texto.split("\n")
-    data = [linha.split() for linha in linhas]
-    df = pd.DataFrame(data)
-    
-    # Define o tamanho das colunas
-    if tamanho_coluna is not None:
-        df.columns = [str(coluna)[:tamanho_coluna] for coluna in df.columns]
-    return df
+    # Salvar a planilha
+    table.to_excel(output_path)
 
-# Pasta de entrada com arquivos PDF
-pasta_entrada = "G:/My Drive/03 - Estudos"
+# Função para selecionar o tamanho das colunas
+def select_column_widths(pdf_path):
+    # Abrir o arquivo PDF
+    pdf = PyMuPDF.PdfFileReader(pdf_path)
 
-# Pasta de saída para arquivos CSV
-pasta_saida = "C:/Users/ramir/Downloads/New folder"
+    # Obter o número de páginas
+    num_pages = pdf.numPages
 
+    # Iterar sobre as páginas
+    for page_num in range(0, num_pages):
+        # Obter a página atual
+        page = pdf.getPage(page_num)
 
-# Tamanho das colunas (deixe None para tamanho padrão)
-tamanho_coluna = 10
+        # Obter o texto da página
+        text = page.extractText()
 
-# Loop através dos arquivos PDF na pasta de entrada
-for arquivo in os.listdir(pasta_entrada):
-    if arquivo.endswith(".pdf"):
-        pdf_path = os.path.join(pasta_entrada, arquivo)
-        texto = extrair_texto(pdf_path)
-        df = converter_para_csv(texto, tamanho_coluna)
-        
-        # Nome do arquivo de saída (remova a extensão .pdf)
-        nome_saida = os.path.splitext(arquivo)[0] + ".csv"
-        saida_path = os.path.join(pasta_saida, nome_saida)
-        
-        # Salva o DataFrame como CSV
-        df.to_csv(saida_path, index=False)
+        # Extrair as colunas
+        columns = text.split("\n")
+
+        # Imprimir as colunas para o usuário
+        for column in columns:
+            print(column)
+
+        # Solicitar ao usuário o tamanho das colunas
+        column_widths = input("Insira o tamanho das colunas (separado por vírgulas): ")
+
+        # Retornar o tamanho das colunas
+        return column_widths
+
+# Função principal
+def main():
+    # Obter o caminho do arquivo PDF
+    pdf_path = input("Insira o caminho do arquivo PDF: ")
+
+    # Selecionar o tamanho das colunas
+    column_widths = select_column_widths(pdf_path)
+
+    # Converter o arquivo PDF em planilha
+    convert_pdf_to_excel(pdf_path, "output.xlsx", column_widths)
+
+# Executar a função principal
+if __name__ == "__main__":
+    main()
